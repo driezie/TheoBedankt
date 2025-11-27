@@ -91,15 +91,6 @@
   }
 
   // analytics.js
-  if (typeof window !== "undefined") {
-    const originalConsoleLog = console.log;
-    console.log = (...args) => {
-      if (args[0] && typeof args[0] === "string" && args[0].includes("[Vercel Web Analytics]")) {
-        return;
-      }
-      originalConsoleLog.apply(console, args);
-    };
-  }
   try {
     inject({ debug: false, mode: "production" });
   } catch (error) {
