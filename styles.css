@@ -276,15 +276,6 @@ audio {
     display: none;
 }
 
-@media (min-width: 769px) {
-    .player-container {
-        display: none !important;
-    }
+.player-container {
+    display: flex !important;
 }
-
-@media (max-width: 768px) {
-    .player-container {
-        display: flex !important;
-    }
-}
-
