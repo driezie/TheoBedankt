@@ -91,5 +91,5 @@
   }
 
   // analytics.js
-  inject();
+  inject({ debug: false, mode: "production" });
 })();

@@ -1,3 +1,3 @@
 import { inject } from '@vercel/analytics';
-inject();
+inject({ debug: false, mode: 'production' });
 
