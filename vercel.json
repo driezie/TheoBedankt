@@ -5,6 +5,10 @@
     {
       "source": "/",
       "destination": "/index.html"
+    },
+    {
+      "source": "/analytics/:path*",
+      "destination": "/_vercel/insights/:path*"
     }
   ],
   "headers": [
