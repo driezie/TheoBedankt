@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #121212;
+    min-height: 100vh;
+    padding: 0;
+    color: #fff;
+    overflow: hidden;
+}
+
+@media (min-width: 769px) {
+    body {
+        padding: 20px;
+        overflow: auto;
+    }
+}
+
+.show-player-btn {
+    display: none;
+}
+
+.player-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #121212;
+    z-index: 9999;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.now-playing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.album-art {
+    width: 280px;
+    height: 280px;
+    border-radius: 8px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.track-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+}
+
+.artist-name {
+    font-size: 16px;
+    color: #b3b3b3;
+    text-align: center;
+}
+
+.like-btn {
+    display: none;
+}
+
+.player-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    gap: 20px;
+}
+
+.control-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.control-btn {
+    background: transparent;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    color: #fff;
+}
+
+.control-btn.active {
+    color: #1db954;
+}
+
+.shuffle-btn svg,
+.repeat-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.prev-btn svg,
+.next-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.play-pause-btn {
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.play-pause-btn:hover {
+    transform: scale(1.1);
+}
+
+.play-pause-btn svg {
+    width: 28px;
+    height: 28px;
+    fill: #000;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.time {
+    font-size: 11px;
+    color: #b3b3b3;
+    min-width: 40px;
+    text-align: center;
+}
+
+.progress-bar-wrapper {
+    flex: 1;
+    height: 4px;
+    background: #535353;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #fff;
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.progress-bar-wrapper:hover .progress-bar {
+    background: #1db954;
+}
+
+.volume-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+}
+
+.volume-btn {
+    background: transparent;
+    border: none;
+    color: #b3b3b3;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.2s;
+}
+
+.volume-btn:hover {
+    color: #fff;
+}
+
+.volume-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.volume-slider-wrapper {
+    width: 93px;
+    height: 4px;
+    background: #535353;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.volume-slider {
+    height: 100%;
+    background: #fff;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.volume-slider-wrapper:hover .volume-slider {
+    background: #1db954;
+}
+
+.download-all-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: transparent;
+    border: 1px solid #535353;
+    color: #b3b3b3;
+    cursor: pointer;
+    padding: 4px 8px;
+    font-size: 10px;
+    border-radius: 4px;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.download-all-btn:hover {
+    color: #fff;
+    border-color: #b3b3b3;
+}
+
+audio {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    .player-container {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .player-container {
+        display: flex !important;
+    }
+}
+

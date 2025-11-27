@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theo Bedankt - Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="player-container" id="playerContainer">
+        <div class="now-playing">
+            <div class="album-art" id="albumArt">
+                <img src="banner.jpg" alt="Album Art" onerror="this.style.display='none'; this.parentElement.innerHTML='🎵';">
+            </div>
+            <div class="track-info">
+                <div class="track-name" id="trackName">Song 4</div>
+                <div class="artist-name">Theo Bedankt</div>
+            </div>
+            <button class="like-btn" aria-label="Save to your library">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M13.764 2.727a4.057 4.057 0 00-5.488-1.164L8 2.023l-.276-.46a4.057 4.057 0 00-5.488 1.164c-1.703 2.02-1.703 5.197 0 7.217l5.764 6.821a.75.75 0 001.12 0l5.764-6.821c1.703-2.02 1.703-5.197 0-7.217zm-1.06 6.217L8 14.626l-4.704-5.682c-1.296-1.536-1.296-3.948 0-5.484a3.057 3.057 0 014.136-.876L8 3.977l.568-.413a3.057 3.057 0 014.136.876c1.296 1.536 1.296 3.948 0 5.484z"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="player-controls">
+            <div class="control-buttons">
+                <button class="control-btn shuffle-btn" id="shuffleBtn" aria-label="Enable shuffle">
+                    <svg viewBox="0 0 16 16" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.46202 1.7554C3.62538 1.14573 4.25205 0.78392 4.86173 0.947282L14.245 3.46152C14.8547 3.62489 15.2165 4.25156 15.0531 4.86123L12.5389 14.2445C12.3755 14.8542 11.7489 15.216 11.1392 15.0526L1.7559 12.5384C1.14622 12.375 0.784415 11.7484 0.947777 11.1387L3.46202 1.7554ZM10.7946 10.8192C10.5904 11.5813 9.80702 12.0335 9.04493 11.8293C8.28283 11.6251 7.83057 10.8418 8.03477 10.0797C8.23898 9.31761 9.02231 8.86535 9.78441 9.06955C10.5465 9.27376 10.9988 10.0571 10.7946 10.8192ZM6.2165 6.93036C6.97859 7.13457 7.76193 6.6823 7.96613 5.92021C8.17034 5.15812 7.71808 4.37478 6.95598 4.17057C6.19389 3.96637 5.41055 4.41863 5.20635 5.18073C5.00214 5.94282 5.4544 6.72616 6.2165 6.93036Z" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button class="control-btn prev-btn" id="prevBtn" aria-label="Previous">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                    </svg>
+                </button>
+                <button class="play-pause-btn" id="playPauseBtn" aria-label="Play">
+                    <svg id="playIcon" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg id="pauseIcon" viewBox="0 0 24 24" style="display: none;">
+                        <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/>
+                    </svg>
+                </button>
+                <button class="control-btn next-btn" id="nextBtn" aria-label="Next">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+                    </svg>
+                </button>
+                <button class="control-btn repeat-btn" id="repeatBtn" aria-label="Enable repeat">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="progress-container">
+                <span class="time" id="currentTime">0:00</span>
+                <div class="progress-bar-wrapper" id="progressWrapper">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <span class="time" id="totalTime">0:00</span>
+            </div>
+        </div>
+
+        <div class="volume-controls">
+            <button class="volume-btn" id="volumeBtn" aria-label="Mute">
+                <svg id="volumeIcon" viewBox="0 0 24 24">
+                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+                </svg>
+            </button>
+            <div class="volume-slider-wrapper" id="volumeWrapper">
+                <div class="volume-slider" id="volumeSlider" style="width: 100%;"></div>
+            </div>
+        </div>
+
+        <button class="download-all-btn" id="downloadAllBtn">Download All</button>
+
+        <audio id="audioPlayer" preload="auto"></audio>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="analytics.bundle.js"></script>
+</body>
+</html>
