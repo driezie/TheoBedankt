@@ -81,20 +81,8 @@
 
     <script src="script.js"></script>
     <script>
-        // Suppress Vercel Analytics error messages
-        // This runs before analytics.bundle.js loads
-        (function() {
-            if (typeof console !== 'undefined' && console.log) {
-                const originalLog = console.log;
-                console.log = function(...args) {
-                    if (args[0] && typeof args[0] === 'string' && args[0].includes('[Vercel Web Analytics]')) {
-                        return; // Suppress analytics error messages
-                    }
-                    originalLog.apply(console, args);
-                };
-            }
-        })();
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
     </script>
-    <script src="analytics.bundle.js"></script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

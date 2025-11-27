@@ -1,15 +1,5 @@
-import { build } from 'esbuild';
-import { mkdir, copyFile, readdir, stat } from 'fs/promises';
+import { mkdir, copyFile, readdir } from 'fs/promises';
 import { join } from 'path';
-
-// Build analytics bundle
-await build({
-  entryPoints: ['analytics.js'],
-  bundle: true,
-  outfile: 'public/analytics.bundle.js',
-  format: 'iife',
-  platform: 'browser',
-});
 
 // Create public directory if it doesn't exist
 try {
